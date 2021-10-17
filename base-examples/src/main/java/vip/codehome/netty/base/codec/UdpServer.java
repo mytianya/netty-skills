@@ -15,6 +15,9 @@ import io.netty.handler.logging.LoggingHandler;
  * @version v1.0
  **/
 public class UdpServer {
+  public UdpServer(Integer port){
+    this.port=port;
+  }
   int port;
   public void start(){
     Bootstrap bootstrap=new Bootstrap();
@@ -35,5 +38,10 @@ public class UdpServer {
     } catch (InterruptedException e) {
       e.printStackTrace();
     }
+  }
+
+  public static void main(String[] args) {
+    UdpServer udpServer=new UdpServer(8000);
+    udpServer.start();
   }
 }
